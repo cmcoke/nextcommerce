@@ -4,6 +4,7 @@ import { client } from "../lib/sanity";
 import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 
+// fetches data for the first 4 latest products from the Sanity Studio.
 const getData = async () => {
   /**
    *  [_type == "product"]: Selects all documents with the _type field equal to "product".
