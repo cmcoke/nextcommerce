@@ -39,8 +39,19 @@ const getData = async (slug: string) => {
   return data; // returns the data variable, which contains the hero image data retrieved from Sanity.
 };
 
+/**
+ *
+ * { params }: { params: { slug: string } } --
+ *
+ *  This line destructures the params object from the props object passed to the ProductPage component.
+ *
+ *  It defines a type annotation for the params object, specifying that it should contain a property named slug of type string.
+ *
+ *  This ensures that the component receives the correct data from its parent and prevents potential errors due to incorrect data types.
+ *
+ */
 const ProductPage = async ({ params }: { params: { slug: string } }) => {
-  const data: fullProduct = await getData(params.slug);
+  const data: fullProduct = await getData(params.slug); // This code snippet destructures the received props to access the "slug" parameter and uses it to fetch product data from the "getData" function. The retrieved data is then stored safely in the "data" variable with the appropriate type.
 
   return (
     <div className="bg-white">
