@@ -34,6 +34,9 @@ const getData = async (cateogry: string) => {
   return data; // Returns the retrieved product data.
 };
 
+// sets the dynamic property for the current Next.js page to "force-dynamic". This means that Next.js will always render the page as a server-side rendered (SSR) page, even if it could potentially be rendered as a static page.
+export const dynamic = "force-dynamic";
+
 /**
  *
  * { params }: { params: { category: string } } --

@@ -1,4 +1,5 @@
 import AddToBag from "@/app/components/AddToBag";
+import CheckoutNow from "@/app/components/CheckoutNow";
 import ImageGallery from "@/app/components/ImageGallery";
 import { fullProduct } from "@/app/interface";
 import { client } from "@/app/lib/sanity";
@@ -39,6 +40,9 @@ const getData = async (slug: string) => {
 
   return data; // returns the data variable, which contains the hero image data retrieved from Sanity.
 };
+
+// sets the dynamic property for the current Next.js page to "force-dynamic". This means that Next.js will always render the page as a server-side rendered (SSR) page, even if it could potentially be rendered as a static page.
+export const dynamic = "force-dynamic";
 
 /**
  *
@@ -92,7 +96,7 @@ const ProductPage = async ({ params }: { params: { slug: string } }) => {
             <div className="flex gap-2.5">
               <AddToBag currency="USD" description={data.description} image={data.images[0]} name={data.name} price={data.price} key={data._id} price_id={data.price_id} />
 
-              <Button variant={"secondary"}>Checkout now</Button>
+              <CheckoutNow currency="USD" description={data.description} image={data.images[0]} name={data.name} price={data.price} key={data._id} price_id={data.price_id} />
             </div>
 
             <p className="mt-12 text-base text-gray-500 tracking-wide">{data.description}</p>
